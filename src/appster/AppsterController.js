@@ -8,7 +8,7 @@ export default class AppsterController {
     setModel(initModel) {
         this.model = initModel;
     }
-
+    //sample change
     /**
      * This function helps the constructor setup the event handlers for all controls.
      * 
