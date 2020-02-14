@@ -40,6 +40,11 @@ export default class AppsterModel {
             this.view.goToEditScreen();
         }
     }
+    deleteprocess1()
+    {
+        this.view.buildAppsterYesNoModal();
+        this.view.showDialog(); 
+    }
 
     loadRecentWork(jsonData) {
         // THEN LOAD ALL DATA FROM RECENT WORK FROM THE JSON FILE
@@ -53,7 +58,9 @@ export default class AppsterModel {
         // JSON FILE, NOW WE CAN UPDATE THE VIEW
         this.view.refreshRecentWork(this.recentWork);        
     }
-
+    
+   
+    
     /**
      * Appends the work to the recent work list.
      * 

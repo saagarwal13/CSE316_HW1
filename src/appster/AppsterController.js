@@ -34,10 +34,14 @@ export default class AppsterController {
         // THEN THE CONTROLS ON THE EDIT SCREEN
         this.registerEventHandler(AppsterGUIId.APPSTER_EDIT_HOME_LINK, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_GO_HOME]);
         this.registerEventHandler(AppsterGUIId.APPSTER_EDIT_TRASH, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_DELETE_WORK]);
+        this.registerEventHandler(AppsterGUIId.APPSTER_YES_NO_MODAL_NO_BUTTON,AppsterHTML.CLICK,this.model.hideTrashPopup); 
+        this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON,AppsterHTML.CLICK, this.model.view.hideNamePopup);
+    
 
         // AND THE MODAL BUTTONS
         this.registerEventHandler(AppsterGUIId.DIALOG_YES_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CONFIRM_DELETE_WORK]);
         this.registerEventHandler(AppsterGUIId.DIALOG_NO_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CANCEL_DELETE_WORK]);
+        
     }
 
     /**    
@@ -86,10 +90,11 @@ export default class AppsterController {
      * This function is called when the user requests to create
      * new work.
      */
-    processCreateNewWork() {
+    processCreateNewWork=()=> {
         console.log("processCreateNewWork");
 
         // PROMPT FOR THE NAME OF THE NEW LIST
+        //this.model.nameList();
         
         // MAKE A BRAND NEW LIST
         this.model.goList();
@@ -153,8 +158,8 @@ export default class AppsterController {
      * button, i.e. the delete button, in order to delete the
      * list being edited.
      */
-    processDeleteWork() {
+    processDeleteWork=()=> {
         // VERIFY VIA A DIALOG BOX
-        window.todo.model.view.showDialog();
+        this.model.deleteprocess1();
     }
 }

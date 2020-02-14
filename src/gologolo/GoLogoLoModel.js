@@ -1,5 +1,7 @@
 import AppsterModel from '../appster/AppsterModel.js'
 import GoLogoLoLogo from './GoLogoLoLogo.js'
+import {AppsterHTML, AppsterSymbols,AppsterGUIId,AppsterGUIClass} from '../appster/AppsterConstants.js'
+
 
 export default class GoLogoLoModel extends AppsterModel {
     constructor() {
@@ -20,6 +22,63 @@ export default class GoLogoLoModel extends AppsterModel {
         return "rgb(" + colorData.red + ", " + colorData.green + ", " + colorData.blue + ")";
     }
 
+    goList=()=>
+    {
+        //console.log("Hi");
+        console.log(this.view.buildAppsterTextInputModal());
+        console.log(this)
+        this.view.controller.registerGoLogoLoEventHandler();
+        this.view.showNamePopup();
+    }
+
+    checkvalidinput = () =>
+    {
+        let inptext = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD).value;
+        console.log(inptext);
+        console.log(this.getlist)
+        console.log(this)
+        console.log(this.recentWork.filter(work => work.name === inptext).length > 0)
+    
+        if(inptext.length<1 || this.recentWork.filter(work => work.name === inptext).length > 0 )
+        {
+            console.log(this.view.buildAppsterConfirmModal());
+            let dialog = document.getElementById(AppsterGUIId.APPSTER_CONFIRM_MODAL);
+            dialog.classList.add(AppsterGUIClass.IS_VISIBLE);
+
+        }
+        else{
+
+            var worktoadd = new GoLogoLoLogo(inptext);
+            this.prependWork(worktoadd);
+
+
+
+        }
+        this.view.hideNamePopup();
+        
+    }
+
+    hideConfirmPopup()
+    {
+        
+        let dialog = document.getElementById(AppsterGUIId.APPSTER_CONFIRM_MODAL);
+        dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
+        
+    }
+    hideTrashPopup =(e) =>
+
+    {
+        e.stopImmediatePropagation();
+        console.log("hello1")
+        this.view.hideDialog()
+    }
+    
+
+
+
+
+
+
     buildAppWork(workArray, name) {
         let appWork = new GoLogoLoLogo();
 
@@ -38,8 +97,12 @@ export default class GoLogoLoModel extends AppsterModel {
                 appWork.setBorderThickness(jsonWork.border_thickness);
                 appWork.setPadding(jsonWork.padding);
                 appWork.setMargin(jsonWork.margin);
+                
             }
+            
         }
+        
+         this.view.controller.registerGoLogoLoEventHandler(); //added this right nowwwwww
 
         return appWork;
     }

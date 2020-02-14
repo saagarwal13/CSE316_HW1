@@ -1,10 +1,13 @@
 import {GoLogoLoGUIClass, GoLogoLoGUIId, GoLogoLoText} from './GoLogoLoConstants.js'
-import {AppsterHTML, AppsterSymbols} from '../appster/AppsterConstants.js'
+import {AppsterHTML, AppsterSymbols,AppsterGUIId,AppsterGUIClass} from '../appster/AppsterConstants.js'
 import AppsterView from '../appster/AppsterView.js'
+
+
 
 export default class GoLogoLoView extends AppsterView {
     constructor() {
         super();
+        //this.model
     }
 
     fillAppWorkspace(workspace) {
@@ -18,11 +21,13 @@ export default class GoLogoLoView extends AppsterView {
         let editTextButton = this.buildElement(AppsterHTML.BUTTON, GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON, [], [], GoLogoLoText.GOLOGOLO_EDIT_TEXT_TEXT);
         editTextButton.innerHTML = AppsterSymbols.EDIT;
         let fontSizeSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER, [], rangeAttributes);
+
+        
         let textColorPicker = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_TEXT_COLOR_PICKER, [], colorPickerAttributes);
         let backgroundColorPicker = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BACKGROUND_COLOR_PICKER, [], colorPickerAttributes);
         let borderColorPicker = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BORDER_COLOR_PICKER, [], colorPickerAttributes);
         let borderRadiusSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER, [], rangeAttributes);
-        let borderThicknessSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER, [], rangeAttributes);
+        let borderThicknessSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BORDER_THICKNESS_SLIDER, [], rangeAttributes);
         let paddingSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_PADDING_SLIDER, [], rangeAttributes);
         let marginSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_MARGIN_SLIDER, [], rangeAttributes);
         let textDiv = this.buildElement(AppsterHTML.DIV, GoLogoLoGUIId.GOLOGOLO_TEXT);
@@ -57,6 +62,7 @@ export default class GoLogoLoView extends AppsterView {
         workspace.appendChild(textDiv);
         return workspace;
     }
+    
 
     loadWork(work) {
         let textDiv = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
@@ -102,4 +108,104 @@ export default class GoLogoLoView extends AppsterView {
         let textList = document.getElementById(listItemId);
         textList.innerHTML += textList.innerHTML + letterToAppend;
     }
+
+    showNamePopup() {
+        let dialog = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL);
+        dialog.classList.add(AppsterGUIClass.IS_VISIBLE);
+        console.log("fgh");
+    }
+    
+       hideNamePopup() {
+        let dialog = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL);
+        dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
+        document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD).value = ''
+    }
+
+    changefontsize=()=>
+    {
+        
+        var logosize = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var fontslider = document.getElementById("gologolo_font_size_slider");
+
+        logosize.style.fontSize= fontslider.value + "px";
+
+        
+    }
+
+    changecolor=()=>
+    {
+        var logocolor = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var colorslider = document.getElementById("gologolo_text_color_picker");
+
+        logocolor.style.color= colorslider.value;
+
+
+    }
+
+    changebackcolor=()=>
+    {
+        var backcolor = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var backcolorslider = document.getElementById("gologolo_background_color_picker" );
+
+        backcolor.style.backgroundColor= backcolorslider.value;
+
+
+
+    }
+    changebordercolor=()=>
+    {
+        var bordercolor = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var bordercolorslider = document.getElementById("gologolo_border_color_picker" );
+        bordercolor.style.borderStyle = "solid";
+
+        bordercolor.style.borderColor= bordercolorslider.value;
+
+    }
+
+    changeborderradius=()=>
+    {
+        var borderradius = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var borderradiuslider = document.getElementById("gologolo_border_radius_slider");
+        borderradius.style.borderStyle = "solid";
+
+
+        borderradius.style.borderRadius= borderradiuslider.value+ "px";
+    }
+
+    changeborderthickness=()=>
+    {
+        var borderthickness = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var borderthicknesslider = document.getElementById("gologolo_border_thickness_slider" );
+        borderthickness.style.borderStyle = "solid";
+
+        borderthickness.style.borderWidth= borderthicknesslider.value+ "px";
+
+
+
+    }
+    changepadding=()=>
+    {
+        var padding1 = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var paddingslider = document.getElementById("gologolo_padding_slider" );
+        console.log("padding")
+        
+
+        padding1.style.padding= paddingslider.value+"px";
+
+    }
+    changemargin=()=>
+    {
+        var margin1 = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var marginslider = document.getElementById("gologolo_margin_slider" );
+       
+
+        margin1.style.margin= marginslider.value+"px";
+
+    }
+
+    
+
+  
+  
+    
 }

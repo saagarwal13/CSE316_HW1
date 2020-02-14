@@ -81,6 +81,7 @@ export const AppsterGUIId = {
     APPSTER_EDIT_WORKSPACE: 'appster_edit_workspace',
 
     // IDs FOR MODALS
+    MODAL_YES_NO_DIALOG: 'appster_yes_no_modal',
     APPSTER_YES_NO_MODAL: 'appster_yes_no_modal',
     APPSTER_YES_NO_MODAL_FRAME: 'appster_yes_no_modal_frame',
     APPSTER_YES_NO_MODAL_HEADER: 'appster_yes_no_modal_header',
@@ -143,7 +144,9 @@ export const AppsterHTML = {
   * and scale well.
   */
  export const AppsterSymbols = {
-    DELETE: "&#128465;"     // TRASH SYMBOL
+    DELETE: "&#128465;"  ,   // TRASH SYMBOL
+    EDIT: "Edit Text ✎"
+
 };
 
 export const AppsterText = {

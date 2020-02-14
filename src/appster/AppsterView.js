@@ -329,6 +329,8 @@ export default class AppsterView {
                                             [AppsterGUIClass.APPSTER_MODAL_FOOTER],
                                             [],
                                             AppsterText.APPSTER_TEXT_INPUT_MODAL_FOOTER_TEXT);
+        //cancelButton.addEventListener("click", this.hideNamePopup);
+        //enterButton.addEventListener("click", this.checkvalidinput);                                    
         p.appendChild(strong);
         section.appendChild(p);
         textFrame.appendChild(header);
@@ -513,6 +515,7 @@ export default class AppsterView {
     */
    hideDialog() {
        let dialog = document.getElementById(AppsterGUIId.MODAL_YES_NO_DIALOG);
+       console.log(dialog)
        dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
    }
 
@@ -521,6 +524,29 @@ export default class AppsterView {
     */
    showDialog() {
        let dialog = document.getElementById(AppsterGUIId.MODAL_YES_NO_DIALOG);
+       console.log(dialog);
        dialog.classList.add(AppsterGUIClass.IS_VISIBLE);
    }
+   /*showNamePopup() {
+    let dialog = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL);
+    dialog.classList.add(AppsterGUIClass.IS_VISIBLE);
+}
+
+   hideNamePopup() {
+    let dialog = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL);
+    dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
+}
+
+checkvalidinput()
+{
+    let inptext = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD).value;
+    console.log(inptext);
+    console.log(this.model.getlist)
+
+
+    if(inptext.length==1)
+    {
+
+    }
+}*/
 }
