@@ -1,6 +1,7 @@
 import AppsterModel from '../appster/AppsterModel.js'
 import GoLogoLoLogo from './GoLogoLoLogo.js'
 import {AppsterHTML, AppsterSymbols,AppsterGUIId,AppsterGUIClass} from '../appster/AppsterConstants.js'
+import {GoLogoLoGUIClass, GoLogoLoGUIId, GoLogoLoText} from './GoLogoLoConstants.js'
 
 
 export default class GoLogoLoModel extends AppsterModel {
@@ -65,20 +66,62 @@ export default class GoLogoLoModel extends AppsterModel {
         dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
         
     }
-    hideTrashPopup =(e) =>
+    hideTrashPopup =() =>
 
     {
-        e.stopImmediatePropagation();
+       
         console.log("hello1")
         this.view.hideDialog()
     }
+
+    Trashwork =()=>
+    {
+        console.log(this.workToEdit)
+
+        this.removeWork(this.workToEdit);
+        this.hideTrashPopup();
+        this.goHome();
+        
+
+
+    }
+    showNamePopup2() {
+        console.log(this);
+        //this.buildAppsterTextInputModal2();
+        let dialog = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL1);
+        dialog.classList.add(AppsterGUIClass.IS_VISIBLE);
+        console.log(document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT).innerHTML);
+        document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD1).value = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT).innerHTML
+
+        
+    }
+
+
+
+    hideNamePopup2=()=> {
+        let dialog = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL1);
+        dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
+        document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD1).value = ''
+    }
+
+
+    changeLogoName=()=>
+    {
+
+        
+        let inptext1 = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD1).value;
+        this.workToEdit.setText(inptext1);
+        document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT).innerText = inptext1;
+        this.hideNamePopup2();
+
+
+
+    }
+
+
+
     
-
-
-
-
-
-
+    
     buildAppWork(workArray, name) {
         let appWork = new GoLogoLoLogo();
 
@@ -107,7 +150,9 @@ export default class GoLogoLoModel extends AppsterModel {
         return appWork;
     }
 
-    updateText() {
- //       this.view.
-    }
+    
+
+    
+
+ 
 }

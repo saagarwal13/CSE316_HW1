@@ -102,7 +102,18 @@ export const AppsterGUIId = {
     APPSTER_TEXT_INPUT_MODAL_TEXTFIELD: "appster_text_input_modal_textfield",
     APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON: 'appster_text_input_modal_enter_button',
     APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON: 'appster_text_input_modal_cancel_button',
-    APPSTER_TEXT_INPUT_MODAL_FOOTER: 'appster_text_input_modal_footer'
+    APPSTER_TEXT_INPUT_MODAL_FOOTER: 'appster_text_input_modal_footer',
+
+    //ADDED THIS
+
+    APPSTER_TEXT_INPUT_MODAL1: 'appster_text_input_modal1',
+    APPSTER_TEXT_INPUT_MODAL_FOOTER1: 'appster_text_input_modal_footer1',
+    APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON1: 'appster_text_input_modal_enter_button1',
+    APPSTER_TEXT_INPUT_MODAL_TEXTFIELD1: "appster_text_input_modal_textfield1",
+    APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON1: 'appster_text_input_modal_cancel_button1'
+
+
+
 };
 
 /**

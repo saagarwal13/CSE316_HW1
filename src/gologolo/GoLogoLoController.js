@@ -23,14 +23,17 @@ registerGoLogoLoEventHandler()
 
     this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON,AppsterHTML.CLICK, this.model.checkvalidinput);
     this.registerEventHandler(AppsterGUIId.APPSTER_CONFIRM_MODAL_OK_BUTTON,AppsterHTML.CLICK,this.model.hideConfirmPopup);
-    this.registerEventHandler(AppsterGUIId.APPSTER_YES_NO_MODAL_YES_BUTTON,AppsterHTML.CLICK, this.model.hideTrashPopup);
-    this.registerEventHandler(AppsterGUIId.APPSTER_YES_NO_MODAL_NO_BUTTON,AppsterHTML.CLICK,this.model.hideTrashPopup);  
+    this.registerEventHandler(AppsterGUIId.APPSTER_YES_NO_MODAL_YES_BUTTON,AppsterHTML.CLICK, this.model.Trashwork);
+    this.registerEventHandler(AppsterGUIId.APPSTER_YES_NO_MODAL_NO_BUTTON,AppsterHTML.CLICK,this.model.hideTrashPopup); 
+    
+    this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON1,AppsterHTML.CLICK, this.model.hideNamePopup2);
+    this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON1,AppsterHTML.CLICK, this.model.changeLogoName);
 
      console.log(GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON);
      console.log(this.model.view.showNamePopup);
      console.log(this.model.view.hideNamePopup);
 
-    this.registerEventHandler(GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON,AppsterHTML.CLICK,this.model.view.showNamePopup);
+    this.registerEventHandler(GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON,AppsterHTML.CLICK,this.model.showNamePopup2);
 
     this.registerEventHandler(GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER,AppsterHTML.INPUT,this.model.view.changefontsize);
     this.registerEventHandler(GoLogoLoGUIId.GOLOGOLO_TEXT_COLOR_PICKER,AppsterHTML.INPUT,this.model.view.changecolor);

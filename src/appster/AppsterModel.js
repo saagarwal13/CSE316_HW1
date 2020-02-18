@@ -27,6 +27,7 @@ export default class AppsterModel {
     editWork(workNameToEdit) {
         // GET THE WORK THAT WE PLAN TO EDIT
         let work = this.getRecentWork(workNameToEdit);
+        this.currentWork= work //added now
 
         if (work) {
             // SET IT AS THE WORK WE ARE EDITING

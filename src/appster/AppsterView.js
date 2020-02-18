@@ -84,11 +84,14 @@ export default class AppsterView {
             let appsterYesNoModal = this.buildAppsterYesNoModal();
             let appsterConfirmModal = this.buildAppsterConfirmModal();
             let appsterTextInputModal = this.buildAppsterTextInputModal();
+            let appsterTextInputModal2 = this.buildAppsterTextInputModal2(); //added this
             appsterRootDiv.appendChild(appsterHomeScreenDiv);
             appsterRootDiv.appendChild(appsterEditScreenDiv);
             appsterRootDiv.appendChild(appsterYesNoModal);
             appsterRootDiv.appendChild(appsterConfirmModal);
             appsterRootDiv.appendChild(appsterTextInputModal);
+            appsterRootDiv.appendChild(appsterTextInputModal2); //ADDED THIS
+            
 
             // HIDE THE THINGS THAT ARE NOT VISIBLE
             this.showElementWithId(AppsterGUIId.APPSTER_EDIT_SCREEN, false);            
@@ -343,6 +346,66 @@ export default class AppsterView {
         return textModal;
     }
 
+    buildAppsterTextInputModal2() {
+        let textModal = this.buildElement(  AppsterHTML.DIV, 
+                                            AppsterGUIId.APPSTER_TEXT_INPUT_MODAL1
+                                        ,
+                                            [AppsterGUIClass.APPSTER_MODAL],
+                                            [],
+                                            null,
+                                            AppsterGUIClass.MODAL_ANIMATION_LEFT);
+        let textFrame = this.buildElement( AppsterHTML.DIV, 
+                                            AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_FRAME,
+                                            [AppsterGUIClass.APPSTER_MODAL_FRAME]);
+        let header = this.buildElement( AppsterHTML.HEADER, 
+                                        AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_HEADER,
+                                        [AppsterGUIClass.APPSTER_MODAL_HEADER]);
+        let section = this.buildElement(    AppsterHTML.SECTION, 
+                                            AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_SECTION,
+                                            [AppsterGUIClass.APPSTER_MODAL_SECTION]);
+        let p = this.buildElement(AppsterHTML.P);
+        let strong = this.buildElement(    AppsterHTML.STRONG, 
+                                                "",
+                                                [],
+                                                [],
+                                                AppsterText.APPSTER_TEXT_INPUT_MODAL_PROMPT_TEXT);
+        let textFieldAttributes = [];
+        textFieldAttributes[AppsterHTML.TYPE] = AppsterHTML.TEXT;
+        let textField1 = this.buildElement(  AppsterHTML.INPUT,
+                                            AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD1,
+                                            [AppsterGUIClass.APPSTER_MODAL_TEXTFIELD],
+                                            textFieldAttributes);
+        let enterButton1 = this.buildElement(   AppsterHTML.BUTTON, 
+                                            AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON1,
+                                            [AppsterGUIClass.APPSTER_MODAL_BUTTON],
+                                            [],
+                                            AppsterText.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_TEXT);
+        let cancelButton1 = this.buildElement(AppsterHTML.BUTTON, 
+                                            AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON1,
+                                            [AppsterGUIClass.APPSTER_MODAL_BUTTON],
+                                            [],
+                                            AppsterText.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_TEXT);
+        let footer1 = this.buildElement(     AppsterHTML.FOOTER, 
+                                            "", 
+                                            [AppsterGUIClass.APPSTER_MODAL_FOOTER],
+                                            [],
+                                            AppsterText.APPSTER_TEXT_INPUT_MODAL_FOOTER_TEXT1);
+       
+        console.log(footer1);
+        console.log(enterButton1);
+        //console.log(APPSTER_TEXT_INPUT_MODAL1);
+        p.appendChild(strong);
+        section.appendChild(p);
+        textFrame.appendChild(header);
+        textFrame.appendChild(section);
+        section.appendChild(textField1);
+        section.appendChild(enterButton1);
+        section.appendChild(cancelButton1);
+        textFrame.appendChild(footer1);
+        textModal.appendChild(textFrame);
+        return textModal;
+    }
+
     /**
      * This method is for building and returning a link on the home page
      * of the app. One will be built for each item in the recent work list.
@@ -408,6 +471,8 @@ export default class AppsterView {
         this.showElementWithId(AppsterGUIId.APPSTER_HOME_SCREEN, false);
 
         // SHOW THE EDIT SCREEN
+        
+
         this.showElementWithId(AppsterGUIId.APPSTER_EDIT_SCREEN, true);
     }
 

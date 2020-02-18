@@ -67,6 +67,10 @@ export default class GoLogoLoView extends AppsterView {
     loadWork(work) {
         let textDiv = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
         textDiv.innerHTML = work.getText();
+
+        textDiv.style.fontSize = work.getFontSize()+ "px" //added now
+        
+
         let fontSizeSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER);
         fontSizeSlider.value = work.getFontSize();
         let textColorPicker = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT_COLOR_PICKER);
@@ -75,12 +79,24 @@ export default class GoLogoLoView extends AppsterView {
         backgroundColorPicker.value = work.getBackgroundColor();
         let borderColorPicker = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_COLOR_PICKER);
         borderColorPicker.value = work.getBorderColor();
+
+        textDiv.style.borderRadius = work.getBorderRadius()+ "px" //added now
+
         let borderRadiusSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER);
         borderRadiusSlider.value = work.getBorderRadius();
+
+        textDiv.style.borderWidth = work.getBorderThickness() +"px";
+
         let borderThicknessSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER);
         borderThicknessSlider.value = work.getBorderThickness();
+
+        textDiv.style.padding = work.getPadding() +"px";
+
         let paddingSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_PADDING_SLIDER);
         paddingSlider.value = work.getPadding();
+
+        textDiv.style.margin = work.getMargin() +"px";
+
         let marginSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_MARGIN_SLIDER);
         marginSlider.value = work.getMargin();
         this.loadWorkStyle(work);
@@ -88,6 +104,7 @@ export default class GoLogoLoView extends AppsterView {
 
     loadWorkStyle(work) {
         let textDiv = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        textDiv.style.fontSize = work.getFontSize();
         textDiv.style.color = work.getTextColor();
         textDiv.style.backgroundColor = work.getBackgroundColor();
         textDiv.style.borderColor = work.getBorderColor();
@@ -115,93 +132,120 @@ export default class GoLogoLoView extends AppsterView {
         console.log("fgh");
     }
     
+    
        hideNamePopup() {
         let dialog = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL);
         dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
         document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD).value = ''
     }
 
+    hideNamePopup2() {
+        let dialog = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL1);
+        dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
+        document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD1).value = ''
+    }
+
     changefontsize=()=>
     {
         
-        var logosize = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
-        var fontslider = document.getElementById("gologolo_font_size_slider");
 
-        logosize.style.fontSize= fontslider.value + "px";
+        let logo = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var fontslider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER);
+        logo.style.fontSize = fontslider.value + "px"
 
+        console.log(fontslider.value,logo.style.fontSize);
         
+        this.controller.model.currentWork.setFontSize(parseInt(fontslider.value));
+       
     }
 
+    
     changecolor=()=>
     {
-        var logocolor = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
-        var colorslider = document.getElementById("gologolo_text_color_picker");
+        var logo = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var colorslider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT_COLOR_PICKER);
 
-        logocolor.style.color= colorslider.value;
+        logo.style.color= colorslider.value;
+
+        this.controller.model.currentWork.setTextColor(colorslider.value);
 
 
     }
 
     changebackcolor=()=>
     {
-        var backcolor = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
-        var backcolorslider = document.getElementById("gologolo_background_color_picker" );
+        var logo = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var backcolorslider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BACKGROUND_COLOR_PICKER );
 
-        backcolor.style.backgroundColor= backcolorslider.value;
+        logo.style.backgroundColor= backcolorslider.value;
+
+        this.controller.model.currentWork.setBackgroundColor(backcolorslider.value);
 
 
 
     }
     changebordercolor=()=>
     {
-        var bordercolor = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
-        var bordercolorslider = document.getElementById("gologolo_border_color_picker" );
-        bordercolor.style.borderStyle = "solid";
+        var logo= document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var bordercolorslider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_COLOR_PICKER );
+        logo.style.borderStyle = "solid";
 
-        bordercolor.style.borderColor= bordercolorslider.value;
+        logo.style.borderColor= bordercolorslider.value;
+
+        this.controller.model.currentWork.setBorderColor(bordercolorslider.value);
 
     }
 
     changeborderradius=()=>
     {
-        var borderradius = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
-        var borderradiuslider = document.getElementById("gologolo_border_radius_slider");
-        borderradius.style.borderStyle = "solid";
+        var logo = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var borderradiuslider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER);
+        logo.style.borderStyle = "solid";
 
 
-        borderradius.style.borderRadius= borderradiuslider.value+ "px";
+        logo.style.borderRadius= borderradiuslider.value+ "px";
+
+        this.controller.model.currentWork.setBorderRadius(borderradiuslider.value);
     }
 
     changeborderthickness=()=>
     {
-        var borderthickness = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var logo = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
         var borderthicknesslider = document.getElementById("gologolo_border_thickness_slider" );
-        borderthickness.style.borderStyle = "solid";
+        logo.style.borderStyle = "solid";
 
-        borderthickness.style.borderWidth= borderthicknesslider.value+ "px";
+        logo.style.borderWidth= borderthicknesslider.value+ "px";
+
+        this.controller.model.currentWork.setBorderThickness(borderthicknesslider.value);
 
 
 
     }
     changepadding=()=>
     {
-        var padding1 = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var logo = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
         var paddingslider = document.getElementById("gologolo_padding_slider" );
         console.log("padding")
         
 
-        padding1.style.padding= paddingslider.value+"px";
+        logo.style.padding= paddingslider.value+"px";
+
+        this.controller.model.currentWork.setPadding(paddingslider.value);
 
     }
     changemargin=()=>
     {
-        var margin1 = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
+        var logo = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
         var marginslider = document.getElementById("gologolo_margin_slider" );
        
 
-        margin1.style.margin= marginslider.value+"px";
+        logo.style.margin= marginslider.value+"px";
+
+        this.controller.model.currentWork.setBorderThickness(marginslider.value);
 
     }
+
+    
 
     
 
