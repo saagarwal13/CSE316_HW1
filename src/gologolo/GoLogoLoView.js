@@ -68,6 +68,8 @@ export default class GoLogoLoView extends AppsterView {
         let textDiv = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
         textDiv.innerHTML = work.getText();
 
+        console.log(work);
+
         textDiv.style.fontSize = work.getFontSize()+ "px" //added now
         
 
@@ -87,7 +89,7 @@ export default class GoLogoLoView extends AppsterView {
 
         textDiv.style.borderWidth = work.getBorderThickness() +"px";
 
-        let borderThicknessSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER);
+        let borderThicknessSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_THICKNESS_SLIDER);
         borderThicknessSlider.value = work.getBorderThickness();
 
         textDiv.style.padding = work.getPadding() +"px";
@@ -205,7 +207,7 @@ export default class GoLogoLoView extends AppsterView {
 
         logo.style.borderRadius= borderradiuslider.value+ "px";
 
-        this.controller.model.currentWork.setBorderRadius(borderradiuslider.value);
+        this.controller.model.currentWork.setBorderRadius(parseInt(borderradiuslider.value));
     }
 
     changeborderthickness=()=>
@@ -216,7 +218,7 @@ export default class GoLogoLoView extends AppsterView {
 
         logo.style.borderWidth= borderthicknesslider.value+ "px";
 
-        this.controller.model.currentWork.setBorderThickness(borderthicknesslider.value);
+        this.controller.model.currentWork.setBorderThickness(parseInt(borderthicknesslider.value));
 
 
 
@@ -230,7 +232,7 @@ export default class GoLogoLoView extends AppsterView {
 
         logo.style.padding= paddingslider.value+"px";
 
-        this.controller.model.currentWork.setPadding(paddingslider.value);
+        this.controller.model.currentWork.setPadding(parseInt(paddingslider.value));
 
     }
     changemargin=()=>
@@ -241,7 +243,7 @@ export default class GoLogoLoView extends AppsterView {
 
         logo.style.margin= marginslider.value+"px";
 
-        this.controller.model.currentWork.setBorderThickness(marginslider.value);
+        this.controller.model.currentWork.setBorderThickness(parseInt(marginslider.value));
 
     }
 

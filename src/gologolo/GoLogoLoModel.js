@@ -35,10 +35,20 @@ export default class GoLogoLoModel extends AppsterModel {
     checkvalidinput = () =>
     {
         let inptext = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD).value;
-        console.log(inptext);
-        console.log(this.getlist)
-        console.log(this)
+        //console.log(inptext);
+        //console.log(this.getlist)
+        //console.log(this)
         console.log(this.recentWork.filter(work => work.name === inptext).length > 0)
+
+        var result = inptext.match(/^\s+$/g);
+        console.log(result);
+
+        if(result)
+        {
+            return;
+
+        }
+        //inptext = inptext.trim;
     
         if(inptext.length<1 || this.recentWork.filter(work => work.name === inptext).length > 0 )
         {
