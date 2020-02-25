@@ -48,9 +48,17 @@ export default class GoLogoLoModel extends AppsterModel {
             return;
 
         }
-        //inptext = inptext.trim;
+        inptext = inptext.trim();
+
+        if(inptext.length<1)
+        {
+            console.log(this.view.buildAppsterConfirmModal2());
+            let dialog = document.getElementById(AppsterGUIId.APPSTER_CONFIRM_MODAL1);
+            dialog.classList.add(AppsterGUIClass.IS_VISIBLE);
+
+        }
     
-        if(inptext.length<1 || this.recentWork.filter(work => work.name === inptext).length > 0 )
+        else if( this.recentWork.filter(work => work.name === inptext).length > 0 )
         {
             console.log(this.view.buildAppsterConfirmModal());
             let dialog = document.getElementById(AppsterGUIId.APPSTER_CONFIRM_MODAL);
@@ -73,6 +81,14 @@ export default class GoLogoLoModel extends AppsterModel {
     {
         
         let dialog = document.getElementById(AppsterGUIId.APPSTER_CONFIRM_MODAL);
+        dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
+        
+    }
+
+    hideConfirmPopup1()
+    {
+        
+        let dialog = document.getElementById(AppsterGUIId.APPSTER_CONFIRM_MODAL1);
         dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
         
     }
@@ -158,6 +174,7 @@ export default class GoLogoLoModel extends AppsterModel {
          this.view.controller.registerGoLogoLoEventHandler(); //added this right nowwwwww
 
         return appWork;
+
     }
 
     

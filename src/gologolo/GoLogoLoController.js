@@ -32,6 +32,7 @@ registerGoLogoLoEventHandler()
      console.log(GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON);
      console.log(this.model.view.showNamePopup);
      console.log(this.model.view.hideNamePopup);
+     this.registerEventHandler(AppsterGUIId.APPSTER_CONFIRM_MODAL_OK_BUTTON1,AppsterHTML.CLICK,this.model.hideConfirmPopup1);
 
     this.registerEventHandler(GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON,AppsterHTML.CLICK,this.model.showNamePopup2);
 

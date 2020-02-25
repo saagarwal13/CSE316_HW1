@@ -85,12 +85,15 @@ export default class AppsterView {
             let appsterConfirmModal = this.buildAppsterConfirmModal();
             let appsterTextInputModal = this.buildAppsterTextInputModal();
             let appsterTextInputModal2 = this.buildAppsterTextInputModal2(); //added this
+            let appsterConfirmModal2 = this.buildAppsterConfirmModal2(); // added this 
             appsterRootDiv.appendChild(appsterHomeScreenDiv);
             appsterRootDiv.appendChild(appsterEditScreenDiv);
             appsterRootDiv.appendChild(appsterYesNoModal);
             appsterRootDiv.appendChild(appsterConfirmModal);
             appsterRootDiv.appendChild(appsterTextInputModal);
             appsterRootDiv.appendChild(appsterTextInputModal2); //ADDED THIS
+            appsterRootDiv.appendChild(appsterConfirmModal2); //added this
+            
             
 
             // HIDE THE THINGS THAT ARE NOT VISIBLE
@@ -289,6 +292,48 @@ export default class AppsterView {
         return confirmModal;
     }
 
+    buildAppsterConfirmModal2() {
+        let confirmModal1 = this.buildElement( AppsterHTML.DIV, 
+                                            AppsterGUIId.APPSTER_CONFIRM_MODAL1,
+                                            [AppsterGUIClass.APPSTER_MODAL],
+                                            [],
+                                            null,
+                                            AppsterGUIClass.MODAL_ANIMATION_LEFT);
+        let confirmFrame = this.buildElement( AppsterHTML.DIV, 
+                                            AppsterGUIId.APPSTER_CONFIRM_MODAL_FRAME,
+                                            [AppsterGUIClass.APPSTER_MODAL_FRAME]);
+        let header = this.buildElement( AppsterHTML.HEADER, 
+                                        AppsterGUIId.APPSTER_CONFIRM_MODAL_HEADER,
+                                        [AppsterGUIClass.APPSTER_MODAL_HEADER]);
+        let section1 = this.buildElement(    AppsterHTML.SECTION, 
+                                            AppsterGUIId.APPSTER_CONFIRM_MODAL_SECTION1,
+                                            [AppsterGUIClass.APPSTER_MODAL_SECTION]);
+        let p = this.buildElement(AppsterHTML.P);
+        let strong1 = this.buildElement(     AppsterHTML.STRONG, 
+                                            "",
+                                            [],
+                                            [],
+                                            AppsterText.APPSTER_CONFIRM_MODAL_PROMPT_TEXT1);
+        let okButton1 = this.buildElement(   AppsterHTML.BUTTON, 
+                                            AppsterGUIId.APPSTER_CONFIRM_MODAL_OK_BUTTON1,
+                                            [AppsterGUIClass.APPSTER_MODAL_BUTTON],
+                                            [],
+                                            AppsterText.APPSTER_CONFIRM_MODAL_OK_BUTTON_TEXT);
+        let footer1 = this.buildElement(     AppsterHTML.FOOTER, 
+                                            "", 
+                                            [AppsterGUIClass.APPSTER_MODAL_FOOTER1],
+                                            [],
+                                            AppsterText.APPSTER_CONFIRM_MODAL_FOOTER_TEXT1);
+        p.appendChild(strong1);
+        section1.appendChild(p);
+        confirmFrame.appendChild(header);
+        confirmFrame.appendChild(section1);
+        section1.appendChild(okButton1);
+        confirmFrame.appendChild(footer1);
+        confirmModal1.appendChild(confirmFrame);
+        return confirmModal1;
+    }
+
     buildAppsterTextInputModal() {
         let textModal = this.buildElement(  AppsterHTML.DIV, 
                                             AppsterGUIId.APPSTER_TEXT_INPUT_MODAL,
@@ -416,7 +461,7 @@ export default class AppsterView {
         let newA = this.buildElement(AppsterHTML.A);
         newA.setAttribute(AppsterHTML.CLASS, AppsterGUIClass.APPSTER_HOME_WORK_LINK);
         newA.setAttribute('href', '#');
-        newA.innerHTML = workName;
+        newA.innerText = workName;
         newA.workId = workName;
         let br = document.createElement(AppsterHTML.BR);
         newA.appendChild(br);
@@ -592,26 +637,4 @@ export default class AppsterView {
        console.log(dialog);
        dialog.classList.add(AppsterGUIClass.IS_VISIBLE);
    }
-   /*showNamePopup() {
-    let dialog = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL);
-    dialog.classList.add(AppsterGUIClass.IS_VISIBLE);
-}
-
-   hideNamePopup() {
-    let dialog = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL);
-    dialog.classList.remove(AppsterGUIClass.IS_VISIBLE);
-}
-
-checkvalidinput()
-{
-    let inptext = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD).value;
-    console.log(inptext);
-    console.log(this.model.getlist)
-
-
-    if(inptext.length==1)
-    {
-
-    }
-}*/
 }

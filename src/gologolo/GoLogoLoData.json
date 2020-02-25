@@ -28,7 +28,13 @@
         {"gologolo_border_radius_text": "Border Radius: "},
         {"gologolo_border_thickness_text": "Border Thickness: "},
         {"gologolo_padding_text": "Padding: "},
-        {"gologolo_margin_text": "Margin: "}
+        {"gologolo_margin_text": "Margin: "},
+
+        
+
+
+        {"appster_confirm_modal_prompt_text1": "Illegal name, blank name entered"},
+        {"appster_confirm_modal_footer_text1": "Try Again "}
     ],
     "recent_work": [
         {

@@ -94,7 +94,7 @@ export const AppsterGUIId = {
     APPSTER_CONFIRM_MODAL_HEADER: 'appster_confirm_modal_header',
     APPSTER_CONFIRM_MODAL_SECTION: 'appster_confirm_modal_section',
     APPSTER_CONFIRM_MODAL_OK_BUTTON: 'appster_confirm_modal_ok_button',
-    APPSTER_CONFIRM_MODAL_FOOTER: 'appster_confirm_frame',
+    APPSTER_CONFIRM_MODAL_FOOTER: 'appster_confirm_footer',
     APPSTER_TEXT_INPUT_MODAL: 'appster_text_input_modal',
     APPSTER_TEXT_INPUT_MODAL_FRAME: 'appster_text_input_modal_frame',
     APPSTER_TEXT_INPUT_MODAL_HEADER: 'appster_text_input_modal_header',
@@ -110,10 +110,16 @@ export const AppsterGUIId = {
     APPSTER_TEXT_INPUT_MODAL_FOOTER1: 'appster_text_input_modal_footer1',
     APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON1: 'appster_text_input_modal_enter_button1',
     APPSTER_TEXT_INPUT_MODAL_TEXTFIELD1: "appster_text_input_modal_textfield1",
-    APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON1: 'appster_text_input_modal_cancel_button1'
+    APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON1: 'appster_text_input_modal_cancel_button1',
 
+    //added this
+    APPSTER_CONFIRM_MODAL1: 'appster_confirm_modal1',
+    APPSTER_CONFIRM_MODAL_FOOTER1: 'appster_confirm_footer1',
+    APPSTER_CONFIRM_MODAL_OK_BUTTON1: 'appster_confirm_modal_ok_button1',
+    APPSTER_TEXT_INPUT_MODAL_SECTION1: 'appster_text_input_modal_section1',
+    
 
-
+    
 };
 
 /**
@@ -145,7 +151,10 @@ export const AppsterHTML = {
     STRONG: "strong",
     TEXT: "text",
     TYPE: "type",
-    UL: "ul"
+    UL: "ul",
+
+    //added now
+    STRONG1: "strong1"
 };
 
 /**
@@ -181,5 +190,9 @@ export const AppsterText = {
     APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_TEXT: "appster_text_input_modal_cancel_button_text",
     APPSTER_TEXT_INPUT_MODAL_FOOTER_TEXT: "appster_text_input_modal_footer_text",
 
-    APPSTER_MODAL_ANIMATION_TEXT: "appster_slideInOutLeft"
+    APPSTER_MODAL_ANIMATION_TEXT: "appster_slideInOutLeft",
+
+ //added now
+    APPSTER_CONFIRM_MODAL_FOOTER_TEXT1: "appster_confirm_modal_footer_text1",
+    APPSTER_CONFIRM_MODAL_PROMPT_TEXT1: "appster_confirm_modal_prompt_text1"
 }
