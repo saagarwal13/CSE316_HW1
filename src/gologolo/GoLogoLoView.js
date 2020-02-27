@@ -153,6 +153,7 @@ export default class GoLogoLoView extends AppsterView {
 
         let logo = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
         var fontslider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER);
+        document.getElementById(GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER).min = "5";
         logo.style.fontSize = fontslider.value + "px"
 
         console.log(fontslider.value,logo.style.fontSize);

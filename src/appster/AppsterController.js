@@ -34,8 +34,8 @@ export default class AppsterController {
         // THEN THE CONTROLS ON THE EDIT SCREEN
         this.registerEventHandler(AppsterGUIId.APPSTER_EDIT_HOME_LINK, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_GO_HOME]);
         this.registerEventHandler(AppsterGUIId.APPSTER_EDIT_TRASH, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_DELETE_WORK]);
-        this.registerEventHandler(AppsterGUIId.APPSTER_YES_NO_MODAL_NO_BUTTON,AppsterHTML.CLICK,this.model.hideTrashPopup); 
-        this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON,AppsterHTML.CLICK, this.model.view.hideNamePopup);
+       // this.registerEventHandler(AppsterGUIId.APPSTER_YES_NO_MODAL_NO_BUTTON,AppsterHTML.CLICK,this.model.hideTrashPopup); 
+       // this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON,AppsterHTML.CLICK, this.model.view.hideNamePopup);
     
 
         // AND THE MODAL BUTTONS
